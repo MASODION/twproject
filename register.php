@@ -19,7 +19,7 @@
       $mesaj_eroare = "Exista deja un cont pentru acest email.";
     }
     else {
-      $query = $conn->prepare("INSERT INTO users (userFirstName, userLastName, userEmail, userPassword, userType) VALUES ('$prenume', '$nume', '$email', '$pass', '1')");
+      $query = $conn->prepare("INSERT INTO users (userFirstName, userLastName, userEmail, userPassword, userPhoneNumber, userType, userSection) VALUES ('$prenume', '$nume', '$email', '$pass', '$nr_tel', '1', '0')");
       $query->execute();
       $countlog = $query->rowCount();
 
@@ -59,7 +59,8 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+  <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+           style="opacity: .8;height: 50px;position: down"><a href="index"> <b>Meden</b>Gen</a>
   </div>
 
   <div class="card">
@@ -130,10 +131,7 @@
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
-              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-              <label for="agreeTerms">
-               Sunt de acord cu <a href="#">termenii si conditiile!</a>
-              </label>
+            <a href="index" class="text-center">Am deja un cont!</a>
             </div>
           </div>
           <!-- /.col -->
@@ -143,7 +141,6 @@
           <!-- /.col -->
         </div>
       </form>
-      <a href="index" class="text-center">Am deja un cont!</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->
