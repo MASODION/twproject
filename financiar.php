@@ -220,7 +220,6 @@ to get the desired effect
           </div>
         </div>
         <div class="row">
-
 <button type="submit" class="btn btn-primary btn-block">Modifica pret!</button>
 <!-- /.col -->
 </div>

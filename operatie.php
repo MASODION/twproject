@@ -3,9 +3,6 @@
   include 'conn/config.php';
   include 'include/auth_checker.php';
   include 'include/operatie_checker.php';
-
-
-
   if(isset($_GET['id'])) {
     $id = intval($_GET['id']);
     $check = $conn->prepare("SELECT a.pID,a.pPacient,a.pMedic,a.pConsultatie,a.pDataProgramare,a.pOraProgramare,a.ptimestamp,a.pDurata,a.pAsistenta,a.pStatus,b.userFirstName,b.userLastName,b.userEmail,b.userPhoneNumber,c.cName,c.cPret,c.cDurata,c.cTip FROM programari a INNER JOIN users b ON a.pPacient=b.userID INNER JOIN consultatii c ON a.pConsultatie = c.cID WHERE a.pID = '$id'");

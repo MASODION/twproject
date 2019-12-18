@@ -3,7 +3,6 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gazdă: localhost
--- Timp de generare: dec. 18, 2019 la 09:08 AM
 -- Versiune server: 10.4.8-MariaDB
 -- Versiune PHP: 7.3.11
 
@@ -59,6 +58,7 @@ CREATE TABLE `consultatii` (
 
 INSERT INTO `consultatii` (`cID`, `cName`, `cSectie`, `cPret`, `cTip`, `cDurata`) VALUES
 (1, 'Consultatie ochi', 7, '130 lei', 'consultatie', '35 minute'),
+(1, 'Consultatie ochi', 7, '100 lei', 'consultatie', '35 minute'),
 (2, 'Operatie retina', 7, '350 lei', 'interventie', '40 minute');
 
 -- --------------------------------------------------------
@@ -82,6 +82,7 @@ INSERT INTO `financiar_log` (`fID`, `fProgramareID`, `fPret`, `ftimestamp`) VALU
 (1, 2, '100 lei', '2019-12-10 23:40:06'),
 (2, 1, '350 lei', '2019-12-11 00:16:03'),
 (3, 3, '100 lei', '2019-12-11 08:20:03');
+(2, 1, '350 lei', '2019-12-11 00:16:03');
 
 -- --------------------------------------------------------
 
@@ -128,6 +129,8 @@ INSERT INTO `obiecte_interventie` (`oiID`, `oiInterventieID`, `oiObiectID`, `oiC
 (3, 1, 1, 15),
 (4, 1, 2, 25),
 (5, 1, 6, 13);
+(3, 1, 1, 6),
+(4, 1, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -157,6 +160,7 @@ INSERT INTO `programari` (`pID`, `pPacient`, `pMedic`, `pConsultatie`, `pDataPro
 (2, 7, 4, 1, '2019-12-25', '10:00', '2019-12-10 23:01:25', '35 minute', '', 2),
 (3, 7, 4, 1, '2019-12-19', '14:00', '2019-12-11 08:17:36', '35 minute', '', 2),
 (4, 7, 4, 2, '2019-12-26', '13:00', '2019-12-11 08:46:24', '40 minute', '', 3);
+(2, 7, 4, 1, '2019-12-25', '10:00', '2019-12-10 23:01:25', '35 minute', '', 2);
 
 -- --------------------------------------------------------
 
@@ -180,6 +184,7 @@ INSERT INTO `rezultate` (`rID`, `rProgramare`, `rResult`, `rMedicatie`, `rPret`)
 (1, 2, 'ochelari distanta', '', '100 lei'),
 (2, 1, 'a avut succes', '', '350 lei'),
 (3, 3, 'cataracta', 'aspirina; paracetamol', '100 lei');
+(2, 1, 'a avut succes', '', '350 lei');
 
 -- --------------------------------------------------------
 
@@ -346,6 +351,7 @@ ALTER TABLE `users_types`
 --
 ALTER TABLE `cereri_programari`
   MODIFY `cpID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cpID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pentru tabele `consultatii`
@@ -358,6 +364,7 @@ ALTER TABLE `consultatii`
 --
 ALTER TABLE `financiar_log`
   MODIFY `fID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `fID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pentru tabele `obiecte`
@@ -370,18 +377,21 @@ ALTER TABLE `obiecte`
 --
 ALTER TABLE `obiecte_interventie`
   MODIFY `oiID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `oiID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pentru tabele `programari`
 --
 ALTER TABLE `programari`
   MODIFY `pID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pentru tabele `rezultate`
 --
 ALTER TABLE `rezultate`
   MODIFY `rID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `rID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pentru tabele `sectii`
